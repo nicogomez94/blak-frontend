@@ -1,3 +1,4 @@
+import React from "react";
 const Success = () => (
 	<div style={{ textAlign: "center",
 			color: "white",
