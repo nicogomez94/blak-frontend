@@ -10,11 +10,13 @@ import './App.css';
 function App() {
     const [seleccionData, setSeleccionData] = useState(null);
     const [reservedDateTime, setReservedDateTime] = useState(null);
-    const [showCalendarButton, setShowCalendarButton] = useState(false);
+    const [showCalendar, setShowCalendar] = useState(false); // Estado para controlar la visibilidad del calendario
+    const [showCalendarButton, setShowCalendarButton] = useState(false); // Estado para mostrar el botón "Volver"
 
     const handleSeleccionConfirmada = (data) => {
         setSeleccionData(data);
-        setShowCalendarButton(true); // Show the calendar button after selection
+        setShowCalendar(true); // Mostrar el calendario
+        setShowCalendarButton(true); // Mostrar el botón "Volver"
         document.querySelector('.container_main_h').style.display = 'none';
         document.querySelector('.seleccion-servicio-container').style.display = 'none';
     };
@@ -26,7 +28,8 @@ function App() {
     const handleVolver = () => {
         document.querySelector('.container_main_h').style.display = 'block';
         document.querySelector('.seleccion-servicio-container').style.display = 'block';
-        setShowCalendarButton(false);
+        setShowCalendar(false); // Ocultar el calendario
+        setShowCalendarButton(false); // Ocultar el botón "Volver"
     };
 
     return (
@@ -62,8 +65,8 @@ function App() {
 
                             <SeleccionServicio onSeleccionar={handleSeleccionConfirmada} />
 
-                            {seleccionData && seleccionData.servicios.length > 0 && (
-                                <div>
+                            {seleccionData && seleccionData.servicios.length > 0 && showCalendar && (
+                                <div className="calendar-container">
                                     <CalendarComponent
                                         onReserve={handleReserve}
                                         servicios={seleccionData.servicios}
