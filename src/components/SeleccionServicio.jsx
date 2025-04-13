@@ -31,6 +31,7 @@ const SeleccionServicio = ({ onSeleccionar }) => {
     const [total, setTotal] = useState(0);
     const [currentView, setCurrentView] = useState('TIPO_VEHICULO');
     const [servicioEnEdicion, setServicioEnEdicion] = useState(null);
+    const [showCalendarButton, setShowCalendarButton] = useState(false);
 
     useEffect(() => {
         if (!tipoVehiculo) {
@@ -117,6 +118,10 @@ const SeleccionServicio = ({ onSeleccionar }) => {
             return { ...base, ...atributos, tamaño: tamañoAuto, precio: precioIndividual };
         });
         onSeleccionar({ servicios: seleccionFinal, total });
+        // Ocultar elementos
+        document.querySelector('.container_main_h').style.display = 'none';
+        document.querySelector('.seleccion-servicio-container').style.display = 'none';
+        setShowCalendarButton(true); // Mostrar botón en el calendario
     };
 
      const areAllAttributesSelected = () => {
