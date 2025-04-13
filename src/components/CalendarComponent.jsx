@@ -5,7 +5,7 @@ import axios from "axios";
 import "react-calendar/dist/Calendar.css";
 import "./CalendarComponent.css";
 
-const API_URL = "https://blak-reservas-ib2j.onrender.com";
+const API_URL = "https://blak-backend.onrender.com";
 
 const CalendarComponent = ({ onReserve, servicios }) => {
 	const [date, setDate] = useState(new Date());

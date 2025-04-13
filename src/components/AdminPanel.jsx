@@ -3,7 +3,7 @@ import axios from "axios";
 import AdminLogin from "./AdminLogin";
 import "./AdminPanel.css";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = "https://blak-backend.onrender.com";
 
 const AdminPanel = () => {
   const [reservas, setReservas] = useState([]);
