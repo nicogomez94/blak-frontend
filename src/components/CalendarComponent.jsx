@@ -44,18 +44,12 @@ const CalendarComponent = ({ onReserve, servicios }) => {
 
 		try {
 			setLoading(true);
-
-			// Formatear los detalles de los servicios
-			const serviciosDetalles = servicios
-				.map(
-					(servicio) =>
-						`- ${servicio.nombre} (${servicio.tamaño}): $${servicio.precio}`
-				)
-				.join("\n");
-
 			const paymentData = {
 				transaction_amount: 10,
-				description: `Fecha: ${fechaISO}\nServicios:\n${serviciosDetalles}`,
+				description: JSON.stringify({
+					fecha: fechaISO,
+					servicios: servicios
+				}),
 				payer: { email: "test_user_123456@testuser.com" }
 			};
 

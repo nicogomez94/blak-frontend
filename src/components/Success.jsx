@@ -9,7 +9,7 @@ const Success = () => (
 		}}>
 		<h2>🎉 ¡Gracias por tu reserva en BLAK!</h2>
 		<p>Tu pago fue aprobado y tu turno quedó confirmado.</p>
-        <a href="http://localhost:5173/">Volver a la App</a>
+        <a href="https://blak-frontend.onrender.com">Volver a la App</a>
 	</div>
 );
 
